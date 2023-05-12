@@ -27,11 +27,11 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: PublishBuildArtifacts@1
+- task: PublishPipelineArtifact@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'dropper'
-    publishLocation: 'Container'
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'SharpHound'
+    publishLocation: 'pipeline'
 
 - task: ArchiveFiles@2
   inputs:
